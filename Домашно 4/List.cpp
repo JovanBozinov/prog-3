@@ -9,6 +9,17 @@ struct SLLNode{
 struct SLL{
     SLLNode* start;
     SLL(): start(nullptr) {}
+    ~SLL(){
+        SLLNode* p=start;
+        if(p){
+            while(p){
+                SLLNode* n=p->next;
+                delete p;
+                p=n;
+            }
+        }
+    }
+
     void print(){
         SLLNode* p=start;
         while(p){
